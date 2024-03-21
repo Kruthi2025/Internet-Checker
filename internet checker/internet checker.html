@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet Connection Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .status {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Internet Connection Checker</h1>
+  <div class="status" id="status"></div>
+
+  <script>
+    function checkInternetConnection() {
+      var statusElement = document.getElementById('status');
+      var online = navigator.onLine;
+
+      if (online) {
+        statusElement.textContent = 'You are currently online.';
+      } else {
+        statusElement.textContent = 'You are currently offline.';
+      }
+    }
+    checkInternetConnection();
+    window.addEventListener('online', checkInternetConnection);
+    window.addEventListener('offline', checkInternetConnection);
+  </script>
+</body>
+</html>
